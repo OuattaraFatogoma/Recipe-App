@@ -8,8 +8,6 @@ const options = {
 	}
 };
 
-const text = "Hi mom!!";
-
 const AppContext = createContext();
 const AppProvider = ({children})=>{
 
@@ -82,7 +80,7 @@ const AppProvider = ({children})=>{
 
     useEffect(() =>{
         console.log('fetch random meal');
-       fetchRandomMeal();
+        fetchRandomMeal();
     },[]);
 
     useEffect(() =>{

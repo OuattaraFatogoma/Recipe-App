@@ -1,5 +1,5 @@
 import './App.css';
-import { Header, Favorites, Meals, MealCard, Modal } from './components';
+import { Header, Favorites, Meals, Modal } from './components';
 
 
 function App() {
@@ -8,9 +8,7 @@ function App() {
       <Header/>
       <Favorites/>
       <Meals/>
-      <dialog id="show-recipe">
-        <Modal/>
-      </dialog>
+      <Modal/>
     </main>
   );
 }
