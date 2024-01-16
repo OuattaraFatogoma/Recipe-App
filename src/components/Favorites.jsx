@@ -16,10 +16,9 @@ function Favorites() {
     <ul id="favorite-container">
       {
         favoriteMeals.map(meal =>{
-          console.log(meal);
           const {thumbnail_url, name, id} = meal;
           return(
-            <FavoriteCard thumbnail_url={thumbnail_url} name={name} id={id}/>
+            <FavoriteCard thumbnail_url={thumbnail_url} name={name} id={id} key={id}/>
           );
         })
       }

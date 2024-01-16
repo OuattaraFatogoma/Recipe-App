@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGlobalContext } from "../context";
-
+import { Link } from "react-router-dom";
 
 function Header() {
   const {SetSearchTerm} = useGlobalContext();
@@ -15,7 +15,7 @@ function Header() {
   }
     return (
       <header>
-        <h1>Recipe App</h1>
+        <Link to="/"><h1>Recipe App</h1></Link>
         <form id="form" onSubmit={handleSearchSubmition}>
           <input
             type="text"

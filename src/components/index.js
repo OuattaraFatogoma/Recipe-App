@@ -4,3 +4,4 @@ export { default as Meals} from "./Meals";
 export { default as MealCard } from "./MealCard";
 export { default as Modal } from "./Modal";
 export { default as FavoriteCard } from "./FavoriteCard";
+export { default as Recipe } from "./Recipe";

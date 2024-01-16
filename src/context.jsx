@@ -31,40 +31,36 @@ const AppProvider = ({children})=>{
             console.log(err.response);
         }
         SetLoading(false);
-        console.log(meals);
     }
 
     const fetchRandomMeal = async () => {
         SetLoading(true);
         const random = Math.round(Math.random()*100);
-        const randomUrl = `https://tasty.p.rapidapi.com/recipes/list?from=${random}&size=1`;
+        const randomUrl = `https://tasty.p.rapidapi.com/recipes/list?from=${random}&size=8`;
         try{
             const response = await fetch(randomUrl, options);
             const data = await response.json();
-            if(loading) console.log("Loading...");
             SetMeals(data.results);
         }
         catch(err){
             console.log(err.response);
         }
         SetLoading(false);
-        console.log(meals);
     }
 
     function addToFavoriteMeals(id){
         const favorite = meals.find(meal => meal.id == id);
         const updateFavoriteMeals = [...favoriteMeals, favorite]
         SetFavoriteMeals(updateFavoriteMeals);
-        console.log(favoriteMeals);
     }
     function removeFromFavoriteMeals(id){
         const updateFavoriteMeals = favoriteMeals.filter(meal => meal.id != id);
         SetFavoriteMeals(updateFavoriteMeals);
-        console.log(favoriteMeals);
     }
 
     function showMealRecipe(id){
-       SetMealToShow(meals.find(meal => meal.id == id));
+       const newMealToShow = meals.find(meal => meal.id == id) ? meals.find(meal => meal.id == id) : favoriteMeals.find(meal => meal.id == id);
+       SetMealToShow(newMealToShow);
        const modal = document.getElementById("show-recipe");
        modal.showModal();
     }
@@ -72,14 +68,14 @@ const AppProvider = ({children})=>{
 
     useEffect(() =>{
         if(searchTerm){
-            console.log('fetch meal by search term');
-            console.log(searchTerm);
+            // console.log('fetch meal by search term');
+            // console.log(searchTerm);
             fetchMeals(searchTerm);
         }
     },[searchTerm]);
 
     useEffect(() =>{
-        console.log('fetch random meal');
+        // console.log('fetch random meal');
         fetchRandomMeal();
     },[]);
 
