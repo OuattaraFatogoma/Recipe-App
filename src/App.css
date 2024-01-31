@@ -163,9 +163,6 @@ header input {
   border-radius: 20px;
 }
 
-#show-recipe::-webkit-scrollbar{
-  display: none;
-}
 #show-recipe img{
   display: block;
   width: 60vh;
